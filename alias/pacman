@@ -1,0 +1,103 @@
+# Aliases - for Pacman
+# By Ryan Barillos
+#
+# Last Updated: 14 Jul 2024
+#
+# NOTES:
+# If you use BASH, import this to "/etc/bash.bashrc"
+# If you use ZSH, import this to "/home/*/.zshrc"
+#
+# REFERENCES:
+# 	https://stackoverflow.com/a/14586145
+# 	https://linuxize.com/post/bash-case-statement/
+# 	https://stackoverflow.com/a/14422397
+# 	https://stackoverflow.com/questions/55357078/bash-function-with-three-to-infinitely-arguments
+# 	https://stackoverflow.com/a/55357194
+#   https://stackoverflow.com/questions/22009364/is-there-a-try-catch-command-in-bash
+#   https://linuxhandbook.com/if-else-bash/
+#   https://stackoverflow.com/questions/18568706/check-number-of-arguments-passed-to-a-bash-script
+
+alias aur='yay -Sa --cleanafter'
+
+pm() {
+    case $1 in
+        (i | in | install) {
+            sudo pacman -S ${@:2};
+        }
+        ;;
+        (r | un | rm | uninstall | remove)
+        sudo pacman -Rns ${@:2};
+        ;;
+        (up | update | upgrade)
+        sudo pacman -Syyuu archlinux-keyring;
+        ;;
+        (l | ls | list)
+        pacman -Qq;
+        ;;
+        (*)
+        pacman --help;
+        ;;
+    esac
+}
+
+# idk()
+# {
+#     # REFERENCES:
+#     #   https://stackoverflow.com/questions/22009364/is-there-a-try-catch-command-in-bash
+#     #   https://linuxhandbook.com/if-else-bash/
+#     #   https://stackoverflow.com/questions/18568706/check-number-of-arguments-passed-to-a-bash-script
+#     #   https://bbs.archlinux.org/viewtopic.php?id=183737
+#     #   https://unix.stackexchange.com/questions/206903/match-exact-string-using-grep
+#     #   https://www.cyberciti.biz/faq/bash-foreach-loop-examples-for-linux-unix/
+#     #   https://www.cyberciti.biz/faq/linux-unix-bash-for-loop-one-line-command/
+#     #   https://stackoverflow.com/questions/4162821/bash-foreach-loop
+#     #   https://www.gnu.org/software/bash/manual/html_node/Arrays.html
+#     #   https://linuxhandbook.com/array-length-bash/
+#     #   https://youtu.be/_mi0O52_gwU?feature=shared
+#     declare -a pkgAOR=();
+#     declare -a pkgAUR=();
+#     declare -a pkgFrgn=();
+#     for pkg in ${@};
+#     do
+#         # Query if specific pkg exists in one of the arch repos
+#         # Otherwise, dump the package
+#         if [ $(pacman -Ssq | grep -x $pkg) ]; then
+#             pkgAOR+="$pkg "
+#         else
+#             pkgAUR+="$pkg "
+#         fi
+#     done;
+    
+    
+#     # do
+#     #     # Query if specific pkg exists in one of the arch repos
+#     #     # Otherwise, dump the package
+#     #     if [ $(pacman -Ssq | grep -x $pkg) ]; then
+#     #         pkgAOR+="$pkg "
+#     #         elif [ $(yay -Sql --aur | grep -x $pkg) ]; then
+#     #         pkgAUR+="$pkg "
+#     #     else
+#     #         pkgFrgn+="$pkg "
+#     #     fi
+#     # done;
+    
+#     # Install packages from Arch Official Repository (AOR)
+#     if [ ${#pkgAOR[@]} != 0 ]; then
+#         sudo pacman -S ${pkgAOR[@]};
+#     fi
+#     # Install packages from Arch User Repository (AUR)
+#     if [ ${#pkgAUR[@]} != 0 ]; then
+#         yay -S ${pkgAUR[@]};
+#     fi
+#     # List packages that were not found
+#     if [ ${#pkgFrgn[@]} != 0 ]; then
+#         clear
+#         echo "One or more programs were not found:"
+#         printf '•%s\n' ${pkgFrgn[*]}
+#         printf '\n' ""
+#         printf '%s\n' "Please visit the following sites to find those:"
+#         printf '•%s\n' "https://archlinux.org" "https://aur.archlinux.org"
+#         printf '%s\n' "" "Or search online (e.g., GitHub, GitLab)" "and install those programs manually." "" ""
+#     fi
+    
+# }

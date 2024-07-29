@@ -1,0 +1,192 @@
+{
+    "policies": {
+        "Comment_01": "Policies on updates",
+        "AppAutoUpdate": true,
+        "BackgroundAppUpdate": true,
+
+
+        "Comment_02": "Policies on blocking & disabling sections",
+        "BlockAboutConfig": true,
+        "BlockAboutProfiles": true,
+        "BlockAboutSupport": false,
+        "DisableDeveloperTools": false,
+        "DisableFeedbackCommands": true,
+        "DisableFirefoxAccounts": true,
+        "DisableFirefoxStudies": true,
+        "DisablePocket": true,
+        "DisablePrivateBrowsing": true,
+        "DisableSafeMode": true,
+        "DisableTelemetry": true,
+
+
+        "Comment_03": "Policies on DNS Over HTTPS",
+        "DNSOverHTTPS": {
+          "Enabled": false,
+          "Locked": true
+        },
+
+
+        "Comment_04": "Policies on Enhanced Tracking Protection",
+        "EnableTrackingProtection": {
+            "Value": true,
+            "Locked": true,
+            "Cryptomining": true,
+            "Fingerprinting": true
+        },
+
+        "Comment 05": "Policies on Encrypted Media (DRM Media)",
+        "EncryptedMediaExtensions": {
+          "Enabled": true,
+          "Locked": false
+        },
+
+        "Comment_06": "Policies on extensions",
+        "ExtensionUpdate": true,
+        "ExtensionSettings": {
+            "*{remove this line to only show asterisk}": {
+                "installation_mode": "allowed",
+                "allowed_types": ["theme", "dictionary", "locale"]
+            },
+            "{58204f8b-01c2-4bbc-98f8-9a90458fd9ef}":{
+                "installation_mode" : "force_installed",
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/blocktube/latest.xpi",
+                "default_area" : "menupanel"
+            },
+            "@testpilot-containers":{
+                "installation_mode" : "normal_installed",
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/multi-account-containers/latest.xpi",
+                "default_area" : "navbar"                
+            },
+            "uBlock0@raymondhill.net":{
+                "installation_mode" : "force_installed",
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi",
+                "default_area" : "navbar"
+            },
+            "addon@darkreader.org":{
+              "installation_mode" : "normal_installed",
+              "install_url": "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi",
+              "default_area" : "navbar"
+          }
+        },
+
+
+        "Comment_07": "Policies on Firefox Home",
+        "FirefoxHome": {
+          "Search": true,
+          "TopSites": false,
+          "SponsoredTopSites": false,
+          "Highlights": false,
+          "Pocket": false,
+          "SponsoredPocket": false,
+          "Snippets": false,
+          "Locked": true
+        },
+        "FirefoxSuggest": {
+            "WebSuggestions":  false,
+            "SponsoredSuggestions": false,
+            "ImproveSuggest": false,
+            "Locked": true
+        },        
+        
+
+        "Comment_08": "Policies on Hardware Acceleration",
+        "HardwareAcceleration": true,
+        
+
+        "Comment_09": "Policies on Logins and Passwords",
+        "OfferToSaveLogins": true,
+        "OfferToSaveLoginsDefault": true,
+
+
+        "Comment_10": "Policies on Permissions",
+        "Permissions": {
+          "Location": {
+            "BlockNewRequests": true,
+            "Locked": true
+          },
+          "Autoplay": {
+            "Default": "block-audio-video",
+            "Locked": true
+          }
+        },
+
+
+        "Comment_11": "Policies on Picture-in-picture",
+        "PictureInPicture": {
+            "Enabled": true,
+            "Locked": true
+        },
+
+        "Comment_12": "Policies on pop-ups",
+        "PopupBlocking": {
+          "Allow": ["", ""],
+          "Default": false,
+          "Locked": false
+        },
+
+
+        "Comment_13": "Policies on printing",
+        "PrintingEnabled": true,
+
+
+        "Comment_14": "Policies on Clear Data on Exit",
+        "SanitizeOnShutdown": true,
+
+
+        "Comment_15": "Policies on search engines",        
+        "SearchEngines": {
+            "Add": [
+              {
+                "Name": "DuckDuckGo HTML",
+                "URLTemplate": "https://html.duckduckgo.com/html/",
+                "Method": "POST",
+                "IconURL": "https://html.duckduckgo.com/favicon.ico",
+                "Alias": "@hddg",
+                "Description": "Search DuckDuckGo (HTML)",
+                "PostData": "name=value&q={searchTerms}",
+                "SuggestURLTemplate": "https://duckduckgo.com/ac/?q={searchTerms}&type=list"
+              },
+              {
+                "Name": "DuckDuckGo Lite",
+                "URLTemplate": "https://lite.duckduckgo.com/lite/",
+                "Method": "POST",
+                "IconURL": "https://lite.duckduckgo.com/favicon.ico",
+                "Alias": "@lddg",
+                "Description": "Search DuckDuckGo (Lite)",
+                "PostData": "name=value&q={searchTerms}",
+                "SuggestURLTemplate": "https://duckduckgo.com/ac/?q={searchTerms}&type=list"
+              },
+              {
+                "Name": "Qwant Junior",
+                "URLTemplate": "https://www.qwantjunior.com?q={searchTerms}&client=opensearch",
+                "Method": "GET",
+                "IconURL": "https://www.qwantjunior.com/public/junior/favicon.9d893df0a1487fae28743a5429bf6740.ico",
+                "Alias": "@qj",
+                "Description": "Qwant Junior est le moteur de recherche pour les enfants.",
+                "SuggestURLTemplate": "https://api.qwant.com/v3/egp/suggest/?q={searchTerms}&client=opensearch"
+              },
+              {
+                "Name": "DuckDuckGo Safe",
+                "URLTemplate": "https://safe.duckduckgo.com/?q={searchTerms}",
+                "Method": "GET",
+                "IconURL": "https://safe.duckduckgo.com/favicon.ico",
+                "Alias": "@sddg",
+                "Description": "Search DuckDuckGo (Safe)",
+                "SuggestURLTemplate": "https://safe.duckduckgo.com/ac/?q={searchTerms}&type=list"
+              }
+            ],
+            "Default": "DuckDuckGo Safe",
+            "Remove": [
+              "Bing",
+              "DuckDuckGo",
+              "eBay",
+              "Amazon.ca",
+              "Amazon.com",
+              "Amazon.sa",
+              "Wikipedia (en)"]
+          },        
+        "SearchSuggestEnabled": false
+    }
+  }
+
+  

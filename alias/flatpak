@@ -1,0 +1,50 @@
+# Aliases - for Flatpak
+# By Ryan Barillos
+#
+# Last Updated: 14 Jul 2024
+#
+# NOTES:
+# If you use BASH, import this to "/etc/bash.bashrc"
+# If you use ZSH, import this to "/home/*/.zshrc"
+#
+# REFERENCES:
+# 	https://stackoverflow.com/a/14586145
+# 	https://linuxize.com/post/bash-case-statement/
+# 	https://stackoverflow.com/a/14422397
+# 	https://stackoverflow.com/questions/55357078/bash-function-with-three-to-infinitely-arguments
+# 	https://stackoverflow.com/a/55357194
+#   https://stackoverflow.com/questions/22009364/is-there-a-try-catch-command-in-bash
+#   https://linuxhandbook.com/if-else-bash/
+#   https://stackoverflow.com/questions/18568706/check-number-of-arguments-passed-to-a-bash-script
+
+fp()
+{
+    case $1 in
+        (i | in | install)
+            flatpak install -y flathub ${@:2};
+        ;;
+        (r | un | rm | uninstall | remove)
+            case $2 in
+                (unused | orphan | useless | trash | unwanted)
+                    flatpak uninstall --delete-data -y --unused;
+                ;;
+                (*)
+                    flatpak uninstall --delete-data -y ${@:2};
+                ;;
+            esac
+        ;;
+        (up | update | upgrade)
+            flatpak upgrade -y;
+        ;;
+        (l | ls | list)
+            flatpak list;
+        ;;
+        (p | perm | permissions)
+            notify-send "Opening Flatseal...";
+            flatpak run com.github.tchx84.Flatseal;
+        ;;
+        (*)
+            flatpak --help;
+        ;;
+    esac
+}
