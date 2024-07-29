@@ -1,11 +1,11 @@
 {
     "policies": {
-        "Comment_01": "Policies on updates",
+        "comment_01": "Policies on updates",
         "AppAutoUpdate": true,
         "BackgroundAppUpdate": true,
 
 
-        "Comment_02": "Policies on blocking & disabling sections",
+        "comment_02": "Policies on blocking & disabling sections",
         "BlockAboutConfig": true,
         "BlockAboutProfiles": true,
         "BlockAboutSupport": false,
@@ -19,14 +19,14 @@
         "DisableTelemetry": true,
 
 
-        "Comment_03": "Policies on DNS Over HTTPS",
+        "comment_03": "Policies on DNS Over HTTPS",
         "DNSOverHTTPS": {
           "Enabled": false,
           "Locked": true
         },
 
 
-        "Comment_04": "Policies on Enhanced Tracking Protection",
+        "comment_04": "Policies on Enhanced Tracking Protection",
         "EnableTrackingProtection": {
             "Value": true,
             "Locked": true,
@@ -34,13 +34,13 @@
             "Fingerprinting": true
         },
 
-        "Comment 05": "Policies on Encrypted Media (DRM Media)",
+        "comment_ 05": "Policies on Encrypted Media (DRM Media)",
         "EncryptedMediaExtensions": {
           "Enabled": true,
           "Locked": false
         },
 
-        "Comment_06": "Policies on extensions",
+        "comment_06": "Policies on extensions",
         "ExtensionUpdate": true,
         "ExtensionSettings": {
             "*{remove this line to only show asterisk}": {
@@ -70,7 +70,7 @@
         },
 
 
-        "Comment_07": "Policies on Firefox Home",
+        "comment_07": "Policies on Firefox Home",
         "FirefoxHome": {
           "Search": true,
           "TopSites": false,
@@ -89,16 +89,19 @@
         },        
         
 
-        "Comment_08": "Policies on Hardware Acceleration",
+        "comment_08": "Policies on Hardware Acceleration",
         "HardwareAcceleration": true,
+
+        "comment_09": "Policies in HTTPS-only Mode",
+        "HttpsOnlyMode": "force_enabled",
         
 
-        "Comment_09": "Policies on Logins and Passwords",
+        "comment_10": "Policies on Logins and Passwords",
         "OfferToSaveLogins": true,
         "OfferToSaveLoginsDefault": true,
 
 
-        "Comment_10": "Policies on Permissions",
+        "comment_11": "Policies on Permissions",
         "Permissions": {
           "Location": {
             "BlockNewRequests": true,
@@ -111,13 +114,13 @@
         },
 
 
-        "Comment_11": "Policies on Picture-in-picture",
+        "comment_12": "Policies on Picture-in-picture",
         "PictureInPicture": {
             "Enabled": true,
             "Locked": true
         },
 
-        "Comment_12": "Policies on pop-ups",
+        "comment_13": "Policies on pop-ups",
         "PopupBlocking": {
           "Allow": ["", ""],
           "Default": false,
@@ -125,15 +128,15 @@
         },
 
 
-        "Comment_13": "Policies on printing",
+        "comment_14": "Policies on printing",
         "PrintingEnabled": true,
 
 
-        "Comment_14": "Policies on Clear Data on Exit",
+        "comment_15": "Policies on Clear Data on Exit",
         "SanitizeOnShutdown": true,
 
 
-        "Comment_15": "Policies on search engines",        
+        "comment_16": "Policies on search engines",        
         "SearchEngines": {
             "Add": [
               {
