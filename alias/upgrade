@@ -1,7 +1,7 @@
 # Aliases - for Upgrade
 # By Ryan Barillos
 #
-# Last Updated: 14 Jul 2024
+# Last Updated: 17 Nov 2024
 #
 # NOTES:
 # If you use BASH, import this to "/etc/bash.bashrc"
@@ -18,8 +18,16 @@
 #   https://stackoverflow.com/questions/18568706/check-number-of-arguments-passed-to-a-bash-script
 
 function upgrade() {
-    sudo pacman -Syyuu archlinux-keyring;
-    yay -Sua --removemake --cleanafter;
+    # Update with Pacman or AUR Helper
+    if [ "pacman -Qq | grep yay" ]; then 
+        echo "AUR Helper DETECTED! It will be used to update system shortly..."
+        sleep 3
+        yay -Syyuu archlinux-keyring --removemake --cleanafter;
+    else
+        sudo pacman -Syyuu archlinux-keyring;
+    fi
+
+    # Update Flatpak Programs
     flatpak update -y;
     
     # Update bootloader
@@ -29,5 +37,21 @@ function upgrade() {
     else
         sudo bootctl update;
     fi
+
+    # Check if EFI parition is used
+    # https://www.cyberciti.biz/faq/linux-unix-shell-check-if-directory-empty/
+    EFI_DIR="/efi"
+
+	if [ "$(ls -A $EFI_DIR)" ]; then
+        echo "Use of EFI Partition is DETECTED!";
+        sleep 3;
+        echo "Moving necessary files to Boot Loader";
+        sudo cp -af /boot/* /efi/EFI/arch_linux
+        sleep 3;
+        echo "Done!";
+	fi
+    sleep 3;
+    echo "Peparing for reboot! Press Ctrl + C to Cancel";
+    sleep 5;
     reboot;
 }
