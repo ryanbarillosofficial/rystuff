@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+target_dir="/efi/EFI/arch_linux"
+
+cp -af /boot/* "${target_dir}/"
