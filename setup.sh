@@ -10,8 +10,11 @@ ln -s /rystuff/etc/firefox /etc
 ln -s /rystuff/etc/initcpio/post/copy-kernel-and-initramfs /etc/initcpio/post/
 
 # Pacman
-rm /etc/pacman.d/mirrorlist && ln -s /rystuff/etc/pacman.d/mirrorlist /etc/pacman.d/
-rm /etc/pacman.conf && ln -s /rystuff/etc/pacman.conf /etc/
+rm /etc/pacman.d/mirrorlist
+ln -s /rystuff/etc/pacman.d/mirrorlist /etc/pacman.d/
+
+rm /etc/pacman.conf
+ln -s /rystuff/etc/pacman.conf /etc/
 
 # Looking Glass
 
