@@ -33,23 +33,23 @@ function efi_upgrade() {
 
 function upgrade() {
     # Update with Pacman or AUR Helper
-    if [ "pacman -Q yay | grep -q 'error'" ]; then 
-        sudo pacman -Syyuu archlinux-keyring;
-    else
+    if [ "pacman -Q yay" ]; then 
         echo "AUR Helper DETECTED! It will be used to update system shortly..."
         sleep 3
-        yay -Syyuu archlinux-keyring --removemake --cleanafter;
+        yay -Syyuu archlinux-keyring --removemake --cleanafter;    
+    else
+        sudo pacman -Syyuu archlinux-keyring;
     fi
 
     # Update Flatpak Programs
     flatpak update -y;
     
     # Update bootloader
-    if [ "pacman -Q grub | grep -q 'error'" ]; then
+    if [ "pacman -Q grub | grep -q 'not found'" ]; then
         sudo bootctl update;
     else
         sudo sudo grub-install;
-        sudo grub-mkconfig -o /boot/grub/grub.cfg;
+        sudo grub-mkconfig -o /boot/grub/grub.cfg;    
     fi
 
     # Check if EFI parition is used

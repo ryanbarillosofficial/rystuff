@@ -37,7 +37,7 @@ fp()
             flatpak upgrade -y;
         ;;
         (l | ls | list)
-            flatpak list;
+            flatpak list --columns=name,application,version;
         ;;
         (p | perm | permissions)
             notify-send "Opening Flatseal...";

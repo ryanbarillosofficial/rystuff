@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+boot_dir="/boot"
+efi_dir="/efi/EFI/arch"
+
+# Iterate over each file in the EFI directory
+for efi_file in "$efi_dir"/*; do
+    # Get the base filename
+    file_name=$(basename "$efi_file")
+
+    # Check if the file also exists in /boot
+    if [[ ! -e "$boot_dir/$file_name" ]]; then
+        echo "Removing stale EFI file: $efi_file"
+        rm -f "$efi_file"
+    fi
+done

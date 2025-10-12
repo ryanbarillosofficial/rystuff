@@ -1,0 +1,10 @@
+[Unit]
+Description=Setup shared folder between Linux host and Waydroid container guest
+
+[Mount]
+Where=/home/rybar/Documents/__sharedFolderDroid
+What=/home/rybar/.local/share/waydroid/data/media/0/Documents/__sharedFolderDroid
+Options=bind,mode=777
+
+[Install]
+WantedBy=waydroid-container.service

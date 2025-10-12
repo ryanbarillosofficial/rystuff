@@ -1,5 +1,19 @@
 #!/usr/bin/env bash
 
-target_dir="/efi/EFI/arch_linux"
+## From here:
+## https://wiki.archlinux.org/title/EFI_system_partition#Using_a_mkinitcpio_post_hook
 
-cp -af /boot/* "${target_dir}/"
+kernel="$1"
+initramfs="$2"
+target_dir="/efi/EFI/arch"
+files_to_copy=()
+
+for file in "$kernel" "$initramfs"; do
+	if [[ -n "$file" ]] && ! cmp -s -- "$file" "${target_dir}/${file##*/}"; then
+		files_to_copy+=("$file")
+	fi
+done
+
+(( ! ${#files_to_copy[@]} )) && exit 0
+
+cp -af -- "${files_to_copy[@]}" "${target_dir}/"
