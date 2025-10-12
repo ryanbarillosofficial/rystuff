@@ -16,8 +16,8 @@ rm /etc/pacman.conf /etc/pacman.d/mirrorlist && ln -s /rystuff/etc/pacman.d/mirr
 # Looking Glass
 
 # Flatpak update service
-ln -s /rystuff/etc/systemd/system/flatpak-update.service /etc-systemd/system/
-ln -s /rystuff/etc/systemd/system/flatpak-update.timer /etc-systemd/system/
+ln -s /rystuff/etc/systemd/system/flatpak-update.service /etc/systemd/system/
+ln -s /rystuff/etc/systemd/system/flatpak-update.timer /etc/systemd/system/
 systemctl daemon-reload
 systemctl enable --now flatpak-update.timer
 
