@@ -17,7 +17,7 @@
 #   https://linuxhandbook.com/if-else-bash/
 #   https://stackoverflow.com/questions/18568706/check-number-of-arguments-passed-to-a-bash-script
 
-alias aur='yay -Sa --cleanafter'
+alias aur='yay --aur --noremovemake --keepsrc --noredownload --answerclean No --answerdiff N'
 
 pm() {
     case $1 in
