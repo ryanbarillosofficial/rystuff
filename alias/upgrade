@@ -17,26 +17,12 @@
 #   https://linuxhandbook.com/if-else-bash/
 #   https://stackoverflow.com/questions/18568706/check-number-of-arguments-passed-to-a-bash-script
 
-function efi_upgrade() {
-    # https://www.cyberciti.biz/faq/linux-unix-shell-check-if-directory-empty/
-    EFI_DIR="/efi"
-
-	if [ "$(ls -A $EFI_DIR)" ]; then
-        echo "Use of EFI Partition is DETECTED!";
-        sleep 3;
-        echo "Moving necessary files to Boot Loader";
-        sudo cp -af /boot/* /efi/EFI/arch_linux
-        sleep 3;
-        echo "Done!";
-	fi    
-}
-
 function upgrade() {
     # Update with Pacman or AUR Helper
     if [ "pacman -Q yay" ]; then 
         echo "AUR Helper DETECTED! It will be used to update system shortly..."
         sleep 3
-        yay -Syyuu archlinux-keyring --removemake --cleanafter;    
+        yay -Syyuu archlinux-keyring --noremovemake --keepsrc --noredownload --answerclean No --answerdiff N;    
     else
         sudo pacman -Syyuu archlinux-keyring;
     fi
@@ -51,10 +37,6 @@ function upgrade() {
         sudo sudo grub-install;
         sudo grub-mkconfig -o /boot/grub/grub.cfg;    
     fi
-
-    # Check if EFI parition is used
-    # efi_upgrade;
-    sleep 3;
 
     echo "Peparing for reboot! Press Ctrl + C to Cancel";
     sleep 5;
