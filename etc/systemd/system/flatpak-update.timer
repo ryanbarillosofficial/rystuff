@@ -1,4 +1,5 @@
 # https://wiki.archlinux.org/title/Flatpak#Automatic_updates_via_systemd
+# https://www.reddit.com/r/SteamDeck/comments/zis9sf/psa_automatically_update_installed_flatpaks/
 
 [Unit]
 Description=Update Flatpak
