@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## Load VM variables
-source "/etc/libvirt/hooks/qemu.d/win11/vm-vars.conf"
+source "/etc/libvirt/hooks/qemu.d/NeedForSpeed_Tiny10/vm-vars.conf"
 
 ## Start Looking Glass
 echo "Starting Looking Glass..."

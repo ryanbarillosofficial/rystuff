@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## Load VM variables
-source "/etc/libvirt/hooks/qemu.d/win11/vm-vars.conf"
+source "/etc/libvirt/hooks/qemu.d/NeedForSpeed_Tiny10/vm-vars.conf"
 
 ## Set dconf keys to disable screensaver and screen blanking. This is
 ## needed as looking-glass disable screensaver doesn't work with Gnome
